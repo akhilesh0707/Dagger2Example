@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_default_padding"
+    tools:context=".AuthActivity">
+
+    <ImageView
+        android:id="@+id/imageViewLogo"
+        android:layout_width="@dimen/auth_logo_height_width"
+        android:layout_height="@dimen/auth_logo_height_width"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/activity_default_padding" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_default_padding"
+        android:layout_marginBottom="@dimen/activity_default_padding"
+        android:hint="@string/label_email_text"
+        android:inputType="number"
+        android:maxLines="1"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_button_login" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/activity_default_padding"
+        android:visibility="gone" />
+
+</LinearLayout>

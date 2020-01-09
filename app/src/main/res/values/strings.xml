@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DaggerExample</string>
+    <string name="label_email_text">User</string>
+    <string name="label_button_login">Login</string>
 </resources>
