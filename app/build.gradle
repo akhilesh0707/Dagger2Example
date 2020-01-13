@@ -6,7 +6,6 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -54,9 +53,12 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     //ViewModel and LiveData
-    // ViewModel and LiveData
-    def lifecycle_version = '2.2.0-alpha03'
+    def lifecycle_version = '2.2.0-rc03'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
+    // Retrofit
+    def retrofit_version = "2.5.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
 }
