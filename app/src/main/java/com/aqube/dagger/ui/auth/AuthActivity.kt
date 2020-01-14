@@ -3,8 +3,8 @@ package com.aqube.dagger.ui.auth
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.aqube.dagger.BaseActivity
 import com.aqube.dagger.R
+import com.aqube.dagger.base.BaseActivity
 import com.aqube.dagger.viewmodels.ViewModelProviderFactory
 import com.bumptech.glide.RequestManager
 import kotlinx.android.synthetic.main.activity_auth.*

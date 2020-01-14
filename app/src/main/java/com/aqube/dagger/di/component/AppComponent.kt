@@ -1,6 +1,6 @@
 package com.aqube.dagger.di.component
 
-import com.aqube.dagger.MyApplication
+import com.aqube.dagger.base.MyApplication
 import com.aqube.dagger.di.module.ActivityBuilderModule
 import com.aqube.dagger.di.module.AppModule
 import com.aqube.dagger.di.module.ViewModelFactoryModule

@@ -1,4 +1,4 @@
-package com.aqube.dagger
+package com.aqube.dagger.base
 
 import com.aqube.dagger.di.component.DaggerAppComponent
 import dagger.android.AndroidInjector

@@ -2,8 +2,8 @@ package com.aqube.dagger.di.module
 
 import android.graphics.drawable.Drawable
 import androidx.core.content.res.ResourcesCompat
-import com.aqube.dagger.MyApplication
 import com.aqube.dagger.R
+import com.aqube.dagger.base.MyApplication
 import com.aqube.dagger.util.BASE_URL
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
@@ -11,6 +11,7 @@ import com.bumptech.glide.request.RequestOptions
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
@@ -23,6 +24,7 @@ class AppModule {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }
 
@@ -47,4 +49,5 @@ class AppModule {
     fun provideAppLogo(application: MyApplication): Drawable{
         return ResourcesCompat.getDrawable(application.resources, R.drawable.logo, null)!!
     }
+
 }

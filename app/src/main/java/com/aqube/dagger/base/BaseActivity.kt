@@ -1,4 +1,4 @@
-package com.aqube.dagger
+package com.aqube.dagger.base
 
 import dagger.android.support.DaggerAppCompatActivity
 
