@@ -1,45 +1,19 @@
 package com.aqube.dagger.ui.auth
 
-import android.util.Log
+import androidx.lifecycle.LiveData
 import com.aqube.dagger.base.BaseViewModel
-import com.aqube.dagger.di.network.auth.AuthApi
-import com.aqube.dagger.model.UserModel
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import com.aqube.dagger.base.Resource
+import com.aqube.dagger.model.User
 import javax.inject.Inject
 
 
-class AuthViewModel @Inject constructor(val authApi: AuthApi) : BaseViewModel() {
+class AuthViewModel @Inject constructor(val userRepository: UserRepository) : BaseViewModel() {
 
-    val TAG: String = AuthViewModel::class.java.simpleName
-    private var compositeDisposable: CompositeDisposable? = null
-
-    init {
-        compositeDisposable = CompositeDisposable()
-        getUser()
+    fun authenticateUserWithId(userId: Int) {
+        userRepository.get(userId)
     }
 
-    private fun getUser() {
-        compositeDisposable?.add(
-            authApi.getUser(1)
-                .toObservable()
-                .subscribeOn(Schedulers.io())
-                .subscribe(this::handleResponse, this::handleError)
-        )
-
-    }
-
-    private fun handleResponse(userModel: UserModel) {
-        Log.d(TAG, userModel.toString())
-    }
-
-    private fun handleError(error: Throwable) {
-        Log.d(TAG, error.localizedMessage)
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        compositeDisposable?.clear()
-        compositeDisposable = null
+    fun observeUser(): LiveData<Resource<User>> {
+        return userRepository.getUserResource()
     }
 }

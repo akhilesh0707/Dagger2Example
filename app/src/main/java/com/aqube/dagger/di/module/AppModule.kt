@@ -10,6 +10,8 @@ import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
 import dagger.Module
 import dagger.Provides
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,12 +22,23 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitInstance(): Retrofit{
+    fun provideRetrofitInstance(httpClient: OkHttpClient.Builder): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .client(httpClient.build())
             .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideHttpClient(): OkHttpClient.Builder {
+        val httpClient: OkHttpClient.Builder = OkHttpClient.Builder()
+        val logging = HttpLoggingInterceptor()
+        logging.level = HttpLoggingInterceptor.Level.BODY
+        httpClient.addInterceptor(logging)
+        return httpClient
     }
 
     @Singleton
@@ -46,7 +59,7 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideAppLogo(application: MyApplication): Drawable{
+    fun provideAppLogo(application: MyApplication): Drawable {
         return ResourcesCompat.getDrawable(application.resources, R.drawable.logo, null)!!
     }
 
