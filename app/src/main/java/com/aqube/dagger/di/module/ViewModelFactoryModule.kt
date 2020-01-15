@@ -1,7 +1,7 @@
 package com.aqube.dagger.di.module
 
 import androidx.lifecycle.ViewModelProvider
-import com.aqube.dagger.viewmodels.ViewModelProviderFactory
+import com.aqube.dagger.base.ViewModelProviderFactory
 import dagger.Binds
 import dagger.Module
 

@@ -5,12 +5,13 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.aqube.dagger.R
 import com.aqube.dagger.base.BaseActivity
 import com.aqube.dagger.base.Resource
-import com.aqube.dagger.viewmodels.ViewModelProviderFactory
+import com.aqube.dagger.base.ViewModelProviderFactory
 import com.bumptech.glide.RequestManager
 import kotlinx.android.synthetic.main.activity_auth.*
 import javax.inject.Inject
@@ -25,6 +26,7 @@ class AuthActivity : BaseActivity(), View.OnClickListener {
     lateinit var requestManager: RequestManager
 
     private lateinit var viewModel: AuthViewModel
+
     private val TAG: String = AuthActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +58,11 @@ class AuthActivity : BaseActivity(), View.OnClickListener {
                     showHideProgressBar(View.GONE)
                 }
                 is Resource.Failure -> {
+                    Toast.makeText(
+                        this@AuthActivity,
+                        resource.throwable.message,
+                        Toast.LENGTH_LONG
+                    ).show()
                     showHideProgressBar(View.GONE)
                 }
             }

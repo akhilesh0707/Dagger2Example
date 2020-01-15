@@ -1,4 +1,4 @@
-package com.aqube.dagger.viewmodels
+package com.aqube.dagger.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
