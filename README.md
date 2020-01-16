@@ -5,7 +5,7 @@ Dagger2 kotlin example with MVVM architecture
 [![Abhishek LinkedIn](https://img.shields.io/badge/Akhilesh-LinkedIn-blue.svg?style=for-the-badge)](https://www.linkedin.com/in/akhilesh0707/) 
 
 ## Description
-a simple app that contains some basic functionality of dagger2 like android injector, component, module, sub-component, It connects to the [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API and fetch users.
+a simple app that contains some basic functionality of dagger2 like android injector, component, module, sub-component etc. It connects to the [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API and fetch users.
 
 
 ## Tech Stack
